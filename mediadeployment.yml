@@ -1,0 +1,25 @@
+apiVersion: v1
+Kind: Deployment
+metadata:
+  name: media-app-deployment
+  labels:
+    app: media-app
+specs:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: Media-app-pod
+      app: media-app
+  template:
+    metadata:
+      name: Media-app-pod
+      labels:
+        name: Media-app-pod
+        app: Social-media-app
+    spec:
+      containers:
+        - name: Social-Media
+          image: macxolelouzaar/socialmediaproject1
+          ports:
+            - containerPort: 80
+

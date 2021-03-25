@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: Media-service
+  labels:
+    name: Media-service
+    app: Social-media-app
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    name: Media-app-pod
+    app: Social-media-app

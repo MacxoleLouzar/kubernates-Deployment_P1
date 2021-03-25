@@ -1,0 +1,24 @@
+apiVersion: app/v1
+Kind: Deployment
+metadata:
+  name: worker-deployment
+  labels:
+    app: Social-media-app
+specs:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: worker-app-pod
+      app: Social-media-app
+  template:
+    metadata:
+      name: worker-app-pod
+      labels:
+        name: worker-app-pod
+        app: Social-media-app
+    spec:
+      containers:
+        - name: Social-Media
+          image: macxolelouzaar/worker-socialmedia_project1
+          ports:
+            - containerPort: 80
